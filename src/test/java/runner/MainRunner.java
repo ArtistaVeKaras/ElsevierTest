@@ -9,9 +9,9 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
 
         features = {"src/test/java/resources/"},
-        glue  =    {""},
+        glue  =    {"stepDefinitions"},
         monochrome = true,
-        tags = {"@Login"},
+        tags = {"@Test"},
         plugin = {"pretty", "html:target/cucumber","json:target/cucumber.json", "com.cucumber.listener.ExtentCucumberFormatter:target/report.html"}
 )
 public class MainRunner {
