@@ -25,21 +25,25 @@ public class IndexPage extends BasePage {
         super();
     }
 
+    //Query summer dresses in the text field
     public IndexPage enterSearchQuery(String text) throws Exception {
         sendKeysToWebElement(searchBox,text);
         return new IndexPage();
     }
-
+    
+    //Click the serach box
     public IndexPage clickTheSearchButton() throws IOException {
         getDriver().findElement((clickTheSeachButton)).click();
         return new IndexPage();
     }
 
+    //Page Reloads
     public IndexPage pageReloadsSummerDressesResults() throws IOException {
         Assert.assertEquals(getDriver().findElement(summerDressResults).getText(),"4 results have been found.");
         return new IndexPage();
     }
 
+    //Click summerd dresses link
     public IndexPage clickOnSummerDress() throws InterruptedException, IOException {
         WebElement element = getDriver().findElement(clickImage);
         Actions actions = new Actions(driver);
@@ -48,30 +52,35 @@ public class IndexPage extends BasePage {
         return new IndexPage();
     }
 
+    //Adding to cart
     public IndexPage clickAddToCart() throws IOException {
         WebElement element = getDriver().findElement(addToCart);
         waiUntilWebElementIsVisible(element);
         element.click();
         return new IndexPage();
     }
-
+    
+    //Pop alert message 
     public IndexPage popAlertMessageIsDisplayed() throws IOException {
         WebElement element = getDriver().findElement(popAlert);
         waiUntilWebElementIsVisible(element);
         Assert.assertEquals(element.getText().toLowerCase(),"product successfully added to your shopping cart");
         return new IndexPage();
     }
-
+    
+    //Proceed to checkout
     public IndexPage clickToProceedToCheckout() throws IOException {
         getDriver().findElement(proceedToCheckoutPopAlert).click();
         return new IndexPage();
     }
 
+    //Proceed to checkout before the sign in page
     public IndexPage finalClickToProceedMessage() throws IOException {
         getDriver().findElement(procceedToCheckout).click();
         return new IndexPage();
     }
 
+    //Performing assertion
     public IndexPage authenticationsSignInIsPresented() throws IOException {
         WebElement element = getDriver().findElement(signIn);
         waiUntilWebElementIsVisible(element);
